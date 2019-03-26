@@ -1,0 +1,6 @@
+
+hello/cgo1/main
+hello/cgo1/liblib.so
+hello/cgo1/lib/lib.o
+.idea
+hello/cgo1/wrapper/liblib.so
