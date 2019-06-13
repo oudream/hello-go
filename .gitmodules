@@ -1,0 +1,15 @@
+[submodule "vendor/github.com/golang/example"]
+	path = vendor/github.com/golang/example
+	url = https://github.com/golang/example
+[submodule "vendor/github.com/gowebexamples/gowebexamples"]
+	path = vendor/github.com/gowebexamples/gowebexamples
+	url = https://github.com/gowebexamples/gowebexamples
+[submodule "vendor/github.com/mmcgrana/gobyexample"]
+	path = vendor/github.com/mmcgrana/gobyexample
+	url = https://github.com/mmcgrana/gobyexample
+[submodule "vendor/github.com/azer/go-makefile-example"]
+	path = vendor/github.com/azer/go-makefile-example
+	url = https://github.com/azer/go-makefile-example
+[submodule "vendor/github.com/golang/tour"]
+	path = vendor/github.com/golang/tour
+	url = https://github.com/golang/tour

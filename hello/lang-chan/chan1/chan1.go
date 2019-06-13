@@ -1,8 +1,7 @@
-package chan1
+package main
 
 import (
 	"fmt"
-	"hello-go/hello/lang-panic"
 	"time"
 )
 
@@ -18,7 +17,6 @@ func HelloChanTimeOut11() {
 	case <-time.After(time.Second * 1):
 		fmt.Println("timeout")
 	}
-	lang_panic.HelloPanic11()
 }
 
 func testVariable1(v int) (r int) {
