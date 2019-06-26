@@ -21,6 +21,8 @@ func format1() {
 
 //  main.point
 	fmt.Printf("%T\n", p)
+	fmt.Printf("%T\n", 123141235634656)
+	fmt.Printf("%T\n", 1e16)
 
 //  true
 	fmt.Printf("%t\n", true)

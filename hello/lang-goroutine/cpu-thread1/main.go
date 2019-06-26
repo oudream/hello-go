@@ -17,6 +17,8 @@
 //	fmt.Println(<-ch)
 //}
 
+
+
 //
 //package main
 //
@@ -59,6 +61,8 @@
 //	fmt.Println(c.Value("somekey"))
 //}
 
+
+
 //
 //package main
 //
@@ -83,9 +87,6 @@
 
 
 
-
-
-
 package main
 
 import (
@@ -95,12 +96,12 @@ import (
 )
 
 func say(i int) {
-	//cmd := exec.Command("/bin/bash", "-c", fmt.Sprintf("sleep %d", i))
 	var cmd * exec.Cmd
 	if i == 999 {
-		cmd = exec.Command("/bin/bash", "-c", `sleep 77`)
+		cmd = exec.Command("/bin/bash", "-c", `sleep 3330`)
 	} else {
-		cmd = exec.Command("/bin/bash", "-c", `sleep 35`)
+		cmd = exec.Command("/bin/bash", "-c", fmt.Sprintf("sleep %d", i))
+		//cmd = exec.Command("/bin/bash", "-c", fmt.Sprintf("nc -l %d", i))
 	}
 	//cmd := exec.Command("/bin/bash", "-c", `df -lh`)
 
@@ -125,12 +126,12 @@ func say(i int) {
 		fmt.Println("wait:", err.Error())
 		return
 	}
-	fmt.Printf("stdout:\n\n %s", bytes)
-	fmt.Printf("index:\n\n %d", i)
+	fmt.Printf("stdout: %s\n\n", bytes)
+	fmt.Printf("index:%d\n\n", i)
 }
 
 func main() {
-	for i := 0; i < 20; i++ {
+	for i := 960; i < 999; i++ {
 		go say(i)
 	}
 	say(999)

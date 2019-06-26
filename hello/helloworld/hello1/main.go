@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	fmt.Println( i)
 	fmt.Println("Hello World")
 	fmt.Println( "\u65e5")
 	//noteFrequency := map[string]float32 {

@@ -13,3 +13,9 @@
 [submodule "vendor/github.com/golang/tour"]
 	path = vendor/github.com/golang/tour
 	url = https://github.com/golang/tour
+[submodule "vendor/github.com/eapache/channels"]
+	path = vendor/github.com/eapache/channels
+	url = https://github.com/eapache/channels.git
+[submodule "vendor/github.com/eapache/queue"]
+	path = vendor/github.com/eapache/queue
+	url = https://github.com/eapache/queue.git
