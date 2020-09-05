@@ -29,7 +29,7 @@
 //)
 //
 //// SafeCounter is safe to use concurrently.
-//type SafeCounter struct {
+//type SafeCounter struct1 {
 //	v   map[string]int
 //	mux sync.Mutex
 //}

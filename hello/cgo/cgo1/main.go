@@ -39,17 +39,17 @@ func main() {
 	C.free(unsafe.Pointer(cs))          // free memory right now ...
 	defer C.free(unsafe.Pointer(csRet)) // ... or later
 
-	// Pass C struct to C function by value.
+	// Pass C struct1 to C function by value.
 	s1 := C.struct_s1{a: 5} // or cast with C.int: s1 := C.struct_s1{C.int(i)}
 	s1Ret := C.f31(s1)
 	fmt.Printf("f31: s1=%v, s1Ret=%v\n", s1, s1Ret)
 
-	// Pass C struct to C function by pointer.
+	// Pass C struct1 to C function by pointer.
 	s1 = C.struct_s1{a: 5}
 	s1Ret = *C.f32(&s1)
 	fmt.Printf("f32: s1=%v, s1Ret=%v\n", s1, s1Ret)
 
-	// Pass C struct with int pointer to C function.
+	// Pass C struct1 with int pointer to C function.
 	// s2 := C.struct_s2{&C.int(i)} - compile error "cannot take the address of _Ctype_int(i)", create variable1 as below
 	ci := C.int(i)
 	s2 := C.struct_s2{p: &ci}

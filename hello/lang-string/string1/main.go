@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+	"strings"
+)
 import "os"
 
 type point struct {
@@ -8,7 +12,6 @@ type point struct {
 }
 
 func format1() {
-
 //  {1 2}
 	p := point{1, 2}
 	fmt.Printf("%v\n", p)
@@ -82,6 +85,33 @@ func format1() {
 	fmt.Fprintf(os.Stderr, "an %s\n", "error")
 }
 
+func helloPrint2() {
+	fmt.Print(`line 1
+line 2
+line 3`)
+}
+
+func helloJion1() {
+	s := "1231"
+	fmt.Print(strings.Join([]string{s,"ewrwer"},"--"))
+}
+
+func helloJion2() {
+	var s []string
+	s = append(s,"123123")
+	ss := strings.Join(s,"")
+	fmt.Print(ss)
+}
+
+func helloJion3()  {
+	var buf bytes.Buffer
+	buf.WriteString("12312")
+	buf.WriteString("werwer")
+	buf.String()
+}
+
 func main() {
-	format1()
+	//format1()
+	//helloPrint2()
+	helloJion2()
 }

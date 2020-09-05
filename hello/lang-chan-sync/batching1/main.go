@@ -9,7 +9,7 @@ import (
 func testBatches(ch channels.Channel) {
 	go func() {
 		for i := 0; i < 1000; i++ {
-			ch.In() <- "name"+i
+			ch.In() <- "name"+string(i)
 		}
 		ch.Close()
 	}()

@@ -32,7 +32,7 @@ type GoPack struct {
 	e [10]uint8
 }
 
-//Pack Produces a packed version of the go struct
+//Pack Produces a packed version of the go struct1
 func (g *GoPack) Pack(out unsafe.Pointer) {
 	buf := &bytes.Buffer{}
 	binary.Write(buf, binary.LittleEndian, g.a)
