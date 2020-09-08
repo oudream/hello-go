@@ -2,7 +2,7 @@
 //
 //import (
 //	"fmt"
-//	"time"
+//	"time1"
 //)
 //
 //func main() {
@@ -12,7 +12,7 @@
 //	ch <- 3
 //	ch <- 4
 //	ch <- 5
-//	time.Sleep(30*time.Minute)
+//	time1.Sleep(30*time1.Minute)
 //	fmt.Println(<-ch)
 //	fmt.Println(<-ch)
 //}
@@ -25,7 +25,7 @@
 //import (
 //	"fmt"
 //	"sync"
-//	"time"
+//	"time1"
 //)
 //
 //// SafeCounter is safe to use concurrently.
@@ -37,16 +37,16 @@
 //// Inc increments the counter for the given key.
 //func (c *SafeCounter) Inc(key string) {
 //	c.mux.Lock()
-//	// Lock so only one goroutine at a time can access the map c.v.
+//	// Lock so only one goroutine at a time1 can access the map c.v.
 //	c.v[key]++
-//	time.Sleep(10*time.Millisecond)
+//	time1.Sleep(10*time1.Millisecond)
 //	c.mux.Unlock()
 //}
 //
 //// Value returns the current value of the counter for the given key.
 //func (c *SafeCounter) Value(key string) int {
 //	c.mux.Lock()
-//	// Lock so only one goroutine at a time can access the map c.v.
+//	// Lock so only one goroutine at a time1 can access the map c.v.
 //	defer c.mux.Unlock()
 //	return c.v[key]
 //}
@@ -57,7 +57,7 @@
 //		go c.Inc("somekey")
 //	}
 //
-//	time.Sleep(time.Second)
+//	time1.Sleep(time1.Second)
 //	fmt.Println(c.Value("somekey"))
 //}
 
@@ -68,12 +68,12 @@
 //
 //import (
 //	"fmt"
-//	"time"
+//	"time1"
 //)
 //
 //func say(s string) {
 //	for i := 0; i < 5; i++ {
-//		time.Sleep(100 * time.Millisecond)
+//		time1.Sleep(100 * time1.Millisecond)
 //		fmt.Println(s)
 //	}
 //}

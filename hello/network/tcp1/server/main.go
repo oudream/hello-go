@@ -66,7 +66,7 @@ func handleMessage(message string, conn net.Conn) {
 
 	if len(message) > 0 && message[0] == '/' {
 		switch {
-		case message == "/time":
+		case message == "/time1":
 			resp := "It is " + time.Now().String() + "\n"
 			fmt.Print("< " + resp)
 			conn.Write([]byte(resp))

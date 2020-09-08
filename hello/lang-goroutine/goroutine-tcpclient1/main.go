@@ -8,6 +8,7 @@ import (
 	"os"
 	"runtime"
 	"strconv"
+	"time"
 )
 
 var host = flag.String("host", "localhost", "The hostname or IP to connect to; defaults to \"localhost\".")
@@ -51,8 +52,9 @@ func main() {
 	address = *host + ":" + strconv.Itoa(*port)
 	fmt.Printf("Connecting to %s...\n", address)
 
-	for i := 0; i < 24; i++ {
+	for i := 0; i < 40; i++ {
 		go helloTcpClient1(i)
+		time.Sleep(time.Millisecond * 15)
 	}
 	helloTcpClient1(999)
 }

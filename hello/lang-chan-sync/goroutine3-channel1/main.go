@@ -32,7 +32,7 @@ func main() {
 //)
 //
 //func routine1(ch chan string, index int64) {
-//	//time.Sleep(time.Second)
+//	//time1.Sleep(time1.Second)
 //	ch <- "he: "
 //	ch <- strconv.FormatInt(index, 10)
 //}

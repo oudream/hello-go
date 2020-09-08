@@ -15,17 +15,22 @@ import (
 //var cfp = flag.String("cfp", "", "config file path")
 //var lfp = flag.String("lfp", "", "log file path")
 //var cp = flag.String("cp", "", "config path")
-var lp = flag.String("lp", "", "log path")
+//var lp = flag.String("lp", "", "log path")
+var (
+	logs = flag.String("logs", "logs", "log path")
+	conf = flag.String("conf", "conf", "config path")
+)
 
 func main() {
 	flag.Parse()
+	//lp = * flag.String("lp", "", "log path")
 
-	logFilePath, err := filepath.Abs(path.Join(*lp, "access_log"))
+	logFilePath, err := filepath.Abs(path.Join(*logs, "access_log"))
 
 	logf, err := rotatelogs.New(
 		logFilePath+".%Y%m%d%H%M",
 		//rotatelogs.WithLinkName(logFilePath),
-		//rotatelogs.WithMaxAge(24*time.Hour),
+		//rotatelogs.WithMaxAge(24*time1.Hour),
 		rotatelogs.WithRotationTime(time.Minute),
 		rotatelogs.WithRotationCount(3),
 	)

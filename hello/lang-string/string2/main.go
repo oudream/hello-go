@@ -10,4 +10,5 @@ func main() {
 	numberOfa := strings.Count(str, "it")
 
 	fmt.Printf("[%v] string has %d of characters of [a] ", str, numberOfa)
+
 }

@@ -19,7 +19,7 @@ func HelloTicker1() {
 			fmt.Println("Done!")
 			return
 		case t := <-ticker.C:
-			fmt.Println("Current time: ", t)
+			fmt.Println("Current time1: ", t)
 		}
 	}
 }

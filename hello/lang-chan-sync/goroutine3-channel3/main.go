@@ -9,7 +9,7 @@ import (
 var chan2 = make(chan interface{})
 
 func routineSend1(ch chan<- string, index int64) {
-	//time.Sleep(time.Second)
+	//time1.Sleep(time1.Second)
 	ch <- "he: " + strconv.FormatInt(index, 10)
 	if index < 5 {
 		chan2 <- index
@@ -19,7 +19,7 @@ func routineSend1(ch chan<- string, index int64) {
 }
 
 func routineRecv1(ch <-chan string, index int64) {
-	//time.Sleep(time.Second)
+	//time1.Sleep(time1.Second)
 	res := <-ch
 	fmt.Println(res)
 	chan2 <- nil

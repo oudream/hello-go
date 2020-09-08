@@ -25,7 +25,7 @@ func main() {
 			fmt.Println("sent message", msg)
 		default:
 			fmt.Println("no message sent")
-			fmt.Println("no message sent - sleep time.Second ")
+			fmt.Println("no message sent - sleep time1.Second ")
 			time.Sleep(time.Second)
 		}
 	}()
@@ -41,7 +41,7 @@ func main() {
 			case msg := <-messages:
 				fmt.Println("received message", msg)
 			default:
-				fmt.Println("no message received - sleep time.Second")
+				fmt.Println("no message received - sleep time1.Second")
 				time.Sleep(time.Second)
 			}
 		}

@@ -34,6 +34,23 @@ func (a *Animal) UnmarshalJSON(b []byte) error {
 	return nil
 }
 
+func (a *Person) UnmarshalJSON(b []byte) error {
+	var s string
+	if err := json.Unmarshal(b, &s); err != nil {
+		return err
+	}
+	switch strings.ToLower(s) {
+	default:
+		*a = Unknown
+	case "gopher":
+		*a = Gopher
+	case "zebra":
+		*a = Zebra
+	}
+
+	return nil
+}
+
 func (a Animal) MarshalJSON() ([]byte, error) {
 	var s string
 	switch a {
@@ -138,7 +155,8 @@ func helloJson2()  {
 }
 
 func main() {
-	blob := `["gopher","armadillo","zebra","unknown","gopher","bee","gopher","zebra"]`
+	blob := `[{"name": "a","age":1},{"name": null,"age":1},{"name": "a","age":null}]`
+	//blob := `["gopher","armadillo","zebra","unknown","gopher","bee","gopher","zebra"]`
 	var zoo []Animal
 	if err := json.Unmarshal([]byte(blob), &zoo); err != nil {
 		log.Fatal(err)

@@ -11,7 +11,7 @@ func main() {
 	var wg sync.WaitGroup
 
 	// you can also add these one at
-	// a time if you need to
+	// a time1 if you need to
 
 	wg.Add(3)
 	go func() {
