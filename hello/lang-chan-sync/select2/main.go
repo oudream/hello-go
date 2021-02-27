@@ -30,7 +30,6 @@ func main() {
 		}
 	}()
 
-
 	go func() {
 		for {
 			// Here's a non-blocking receive. If a value is

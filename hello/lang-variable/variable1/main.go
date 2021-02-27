@@ -1,9 +1,7 @@
-package variable1
+package main
 
 import (
 	"fmt"
-	"hello-go/hello/lang-utils/utils1"
-	"hello-go/hello/lang-variable/variable1/sub1"
 )
 
 // *** prove variable init sort *** begin: ***
@@ -32,12 +30,6 @@ var (
 // *** prove variable init sort *** end: ***
 
 
-// *** prove const variable iota scope in page
-const (
-	pgida = iota
-	pgidb = iota
-	pgidc = iota
-)
 
 func testVariable1(v int) (r int) {
 	// *** prove const variable iota scope in page
@@ -46,20 +38,31 @@ func testVariable1(v int) (r int) {
 	fmt.Println(c, " - ", d, "\n")
 
 	// *** prove const variable iota scope in page
-	fmt.Println("main Variable1 :", pgida, " - ", pgidb)
-
-	// *** prove global variable can modify by other page
-	fmt.Println(sub1.Var1Int1)
-	sub1.Var1Int2++
-	fmt.Println(sub1.Var1Int2)
+	//fmt.Println("main Variable1 :", pgida, " - ", pgidb)
 	return v
 }
-var iTemp1 = utils1.RegCallBack(testVariable1)
+
+func RegCallBack(fn interface{}) {
+
+}
 
 func main() {
 	fmt.Println("Language begin:")
 
-	utils1.DoCallBack(0)
+	const(
+		MaxUint32 = ^uint32(0)
+		MinUint32 = uint32(0)
+		MaxInt32 = int32(MaxUint32 >> 1)
+		MinInt32 = -MaxInt32 - 1
+		MaxUint64 = ^uint64(0)
+		MinUint64 = uint64(0)
+		MaxInt64 = int(MaxUint64 >> 1)
+		MinInt64 = -MaxInt64 - 1
+	)
+	fmt.Println(MaxInt32)
+	fmt.Println(MinInt32)
+	fmt.Println(MaxInt64)
+	fmt.Println(MinInt64)
 
 	fmt.Println("Language end.")
 }

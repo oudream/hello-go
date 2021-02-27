@@ -1,4 +1,4 @@
-package flag1
+package main
 
 func main() {
 	HelloFlag11()

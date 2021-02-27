@@ -12,9 +12,7 @@ import (
 	"flag"
 	"fmt"
 	"net"
-	"os"
 	"strconv"
-	"time"
 )
 
 var addr = flag.String("addr", "", "The address to listen to; default is \"\" (all interfaces).")
@@ -63,23 +61,26 @@ func handleConnection(conn net.Conn) {
 
 func handleMessage(message string, conn net.Conn) {
 	fmt.Println("> " + message)
-
-	if len(message) > 0 && message[0] == '/' {
-		switch {
-		case message == "/time1":
-			resp := "It is " + time.Now().String() + "\n"
-			fmt.Print("< " + resp)
-			conn.Write([]byte(resp))
-
-		case message == "/quit":
-			fmt.Println("Quitting.")
-			conn.Write([]byte("I'm shutting down now.\n"))
-			fmt.Println("< " + "%quit%")
-			conn.Write([]byte("%quit%\n"))
-			os.Exit(0)
-
-		default:
-			conn.Write([]byte("Unrecognized command.\n"))
-		}
+	if len(message) > 0 {
+		conn.Write([]byte(message))
 	}
+
+	//if len(message) > 0 && message[0] == '\r' {
+	//	switch {
+	//	case message == "/time1":
+	//		resp := "It is " + time.Now().String() + "\n"
+	//		fmt.Print("< " + resp)
+	//		conn.Write([]byte(resp))
+	//
+	//	case message == "/quit":
+	//		fmt.Println("Quitting.")
+	//		conn.Write([]byte("I'm shutting down now.\n"))
+	//		fmt.Println("< " + "%quit%")
+	//		conn.Write([]byte("%quit%\n"))
+	//		os.Exit(0)
+	//
+	//	default:
+	//		conn.Write([]byte("Unrecognized command.\n"))
+	//	}
+	//}
 }

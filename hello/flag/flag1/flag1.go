@@ -2,11 +2,13 @@
 // 是命令行程序指定选项的常用方式。例如，在 `wc -l` 中，
 // 这个 `-l` 就是一个命令行标志。
 
-package flag1
+package main
 
 // Go 提供了一个 `flag` 包，支持基本的命令行标志解析。
 // 我们将用这个包来实现我们的命令行程序示例。
-import "flag"
+import (
+	"flag"
+)
 import "fmt"
 
 func HelloFlag11() {
@@ -16,7 +18,7 @@ func HelloFlag11() {
 	// 并带有一个简短的描述。这里的 `flag.String` 函数返回一个字
 	// 符串指针（不是一个字符串值），在下面我们会看到是如何
 	// 使用这个指针的。
-	wordPtr := flag.String("word", "foo", "a string")
+	wordPtr := flag.String("word.token", "foo", "a string")
 
 	// 使用和声明 `word` 标志相同的方法来声明 `numb` 和 `fork` 标志。
 	numbPtr := flag.Int("numb", 42, "an int")
@@ -39,4 +41,29 @@ func HelloFlag11() {
 	fmt.Println("fork:", *boolPtr)
 	fmt.Println("svar:", svar)
 	fmt.Println("tail:", flag.Args())
+
+	i := 1
+	switch i {
+	case 1:
+	case 2:
+		fmt.Println("is an array with element type")
+	default:
+		fmt.Println("is something else entirely")
+	}
+	i = 2
+	switch i {
+	case 1:
+	case 2:
+		fmt.Println("is an array with element type")
+	default:
+		fmt.Println("is something else entirely")
+	}
+	i = 3
+	switch i {
+	case 1:
+	case 2:
+		fmt.Println("is an array with element type")
+	default:
+		fmt.Println("is something else entirely")
+	}
 }

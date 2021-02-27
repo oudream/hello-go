@@ -8,7 +8,9 @@ import (
 )
 
 func helloUrl1()  {
-	url := "http://192.168.241.32:8081/api/allpropertyinfos/0?begin=1598292000000&end=0"
+	now := time.Now().UnixNano() / 1e6
+	//url := "http://192.168.5.29:8080/web/search"
+	url := "http://192.168.5.29:808/api/search"
 	var client http.Client
 	resp, err := client.Get(url)
 	if err != nil {
@@ -25,12 +27,15 @@ func helloUrl1()  {
 		log.Println(url, time.Now())
 		log.Println(bodyString)
 	}
+	log.Println("cost time : " , time.Now().UnixNano() / 1e6 - now)
 }
 
 func main() {
 	//resp, err := http.Get("http://gobyexample.com")
-	for {
-		helloUrl1()
-		time.Sleep(10)
-	}
+	helloUrl1()
+
+	//for {
+	//	helloUrl1()
+	//	time.Sleep(10)
+	//}
 }

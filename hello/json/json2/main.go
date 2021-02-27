@@ -19,6 +19,7 @@ func helloJson1() {
 	//fmt.Printf("%#v", keys)
 	fmt.Print(keys)
 }
+
 type ALlPropertyInfos struct {
 	picAmount int
 	ID int
@@ -177,9 +178,8 @@ type ALlPropertyInfos_res struct {
 	ui_Other int
 }
 
-
 func helloJson2() int {
-	content, err := ioutil.ReadFile("D:\\twant\\go853\\referto\\PropertyInfos1.json")
+	content, err := ioutil.ReadFile("PropertyInfos1.json")
 	if err != nil {
 		return -1
 	}

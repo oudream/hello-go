@@ -19,5 +19,7 @@ func main() {
 		os.Exit(100)
 	}
 
+	os.Exit(1)
+
 	fmt.Printf("%s\n", str[*(lower):(*upper)])
 }
