@@ -106,6 +106,24 @@ func (b *BitBool) Scan(src interface{}) error {
 	return nil
 }
 
+func dbExecute(db *sql.DB, sql string, rowStruct interface{}) (int64, error) {
+	stmtIns, err1 := db.Prepare(sql) // ? = placeholder
+	if err1 != nil {
+		return -1, fmt.Errorf("dbExecute -> Error1: %s - %s - %v", err1, sql, rowStruct)
+	}
+	defer stmtIns.Close() // Close the statement when we leave main() / the program terminates
+	s := reflect.ValueOf(rowStruct).Elem()
+	row := make([]interface{}, s.NumField())
+	for i := 0; i < s.NumField(); i++ {
+		row[i] = s.Field(i).Addr().Interface()
+	}
+	result, err2 := stmtIns.Exec(row...)
+	if err2 != nil {
+		return -1, fmt.Errorf("dbExecute -> Error2: %s - %s - %v", err2, sql, rowStruct)
+	}
+	return result.RowsAffected()
+}
+
 // CREATE TABLE `t1` (
 //  `f1` int(11) NOT NULL,
 //  `f2` bigint(20) DEFAULT NULL,
@@ -140,7 +158,8 @@ type Goods struct {
 func main() {
 	//hellosingle()
 	//helloMulti()
-	helloGoods()
+	//helloGoods()
+	helloDbExecute()
 }
 
 func tmDiff2Now(tm time.Time) int64 {
@@ -196,3 +215,23 @@ func helloGoods()  {
 	fmt.Println(len(rs))
 }
 
+func helloDbExecute() {
+	db, err := sql.Open("mysql", "root:Ftofs7All#9@tcp(192.168.5.19:3306)/Twdata?charset=utf8&parseTime=true")
+	if err != nil {
+		panic(err.Error()) // Just for example purpose. You should use proper error handling instead of panic
+	}
+	defer db.Close()
+	sqlInsert := "INSERT INTO `Twdata`.`t1`(`f1`, `f2`, `f3`, `f4`, `f5`, `f6`, `f7`, `f8`, `f9`) " +
+		" VALUES " +
+		" (?, ?, ?, ?, ?, ?, ?, ?, ?);"
+	t1 := T1{}
+	t1.F1 = 5
+	t1.F6 = "a"
+	t1.F7 = "b"
+	t1.F8 = "c"
+	dtNow1 := time.Now()
+	r, _ := dbExecute(db, sqlInsert, &t1)
+	fmt.Println("--- -------------------- ---", tmDiff2Now(dtNow1))
+	fmt.Println(t1)
+	fmt.Println(r)
+}
